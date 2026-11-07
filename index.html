@@ -1235,37 +1235,199 @@
   </div>
 
   <!-- CHECKOUT MODAL -->
-  <div class="overlay" id="checkoutOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <h3><i class="fas fa-credit-card" style="margin-right:8px;"></i>Checkout</h3>
-        <button class="modal-close" data-close="checkoutOverlay"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="checkout-summary" id="checkoutSummary">
-        <!-- filled by JS -->
-      </div>
-      <div class="card-input-wrap">
-        <label>Card number</label>
-        <input type="text" placeholder="4242 4242 4242 4242" maxlength="19" id="cardNumber">
-      </div>
-      <div class="card-row">
-        <div class="card-input-wrap">
-          <label>Expiry</label>
-          <input type="text" placeholder="MM / YY" maxlength="7" id="cardExpiry">
+<div class="overlay" id="checkoutOverlay">
+  <div class="modal checkout-modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-lock" style="margin-right:8px;"></i>Secure checkout</h3>
+      <button class="modal-close" data-close="checkoutOverlay"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="checkout-scroll">
+
+      <!-- ========== 1. ORDER SUMMARY (collapsible) ========== -->
+      <div class="checkout-block order-summary-block">
+        <button type="button" class="summary-toggle" id="summaryToggle" aria-expanded="true">
+          <span><i class="fas fa-receipt" style="margin-right:8px;"></i>Order summary</span>
+          <span class="summary-toggle-right">
+            <span id="summaryCount" class="summary-count">0 items</span>
+            <i class="fas fa-chevron-down summary-chevron"></i>
+          </span>
+        </button>
+        <div class="summary-body" id="summaryBody">
+          <div id="checkoutSummary">
+            <!-- filled by JS -->
+          </div>
         </div>
-        <div class="card-input-wrap">
-          <label>CVC</label>
-          <input type="text" placeholder="123" maxlength="4" id="cardCvc">
+      </div>
+
+      <!-- ========== 2. DELIVERY SECTION ========== -->
+      <div class="checkout-block">
+        <h4 class="block-title"><i class="fas fa-truck" style="margin-right:8px;"></i>Delivery address</h4>
+
+        <div class="field">
+          <label>Country / Region</label>
+          <div class="searchable-select" data-select="shipCountry">
+            <input type="text" class="select-search" placeholder="Search country..." autocomplete="off" />
+            <div class="select-list" role="listbox"></div>
+            <input type="hidden" id="shipCountry" />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>First name</label>
+            <input type="text" id="shipFirstName" placeholder="Elie" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label>Last name</label>
+            <input type="text" id="shipLastName" placeholder="Smith" autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Address</label>
+          <input type="text" id="shipAddress" placeholder="123 Doll Lane" autocomplete="address-line1">
+        </div>
+
+        <div class="field">
+          <label>Apartment, suite, etc. <span class="optional">(optional)</span></label>
+          <input type="text" id="shipApartment" placeholder="Apt 4B" autocomplete="address-line2">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>City</label>
+            <input type="text" id="shipCity" placeholder="London" autocomplete="address-level2">
+          </div>
+          <div class="field">
+            <label>State / Province</label>
+            <input type="text" id="shipState" placeholder="Greater London" autocomplete="address-level1">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Postal code</label>
+            <input type="text" id="shipPostal" placeholder="SW1A 1AA" autocomplete="postal-code">
+          </div>
+          <div class="field">
+            <label>Mobile phone</label>
+            <div class="phone-input">
+              <span class="phone-prefix" id="shipPhonePrefix">+1</span>
+              <input type="tel" id="shipPhone" placeholder="555 123 4567" autocomplete="tel">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="secure-note">
-        <i class="fas fa-shield-alt"></i> Secure payment · SSL encrypted
+
+      <!-- ========== 3. BILLING TOGGLE ========== -->
+      <div class="checkout-block billing-block">
+        <label class="checkbox-row">
+          <input type="checkbox" id="sameAsShipping" checked>
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Use shipping address as billing address</span>
+        </label>
+
+        <div class="billing-form" id="billingForm">
+          <h4 class="block-title"><i class="fas fa-file-invoice" style="margin-right:8px;"></i>Billing address</h4>
+
+          <div class="field">
+            <label>Country / Region</label>
+            <div class="searchable-select" data-select="billCountry">
+              <input type="text" class="select-search" placeholder="Search country..." autocomplete="off" />
+              <div class="select-list" role="listbox"></div>
+              <input type="hidden" id="billCountry" />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>First name</label>
+              <input type="text" id="billFirstName" placeholder="Elie">
+            </div>
+            <div class="field">
+              <label>Last name</label>
+              <input type="text" id="billLastName" placeholder="Smith">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Address</label>
+            <input type="text" id="billAddress" placeholder="123 Doll Lane">
+          </div>
+
+          <div class="field">
+            <label>Apartment, suite, etc. <span class="optional">(optional)</span></label>
+            <input type="text" id="billApartment" placeholder="Apt 4B">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>City</label>
+              <input type="text" id="billCity" placeholder="London">
+            </div>
+            <div class="field">
+              <label>State / Province</label>
+              <input type="text" id="billState" placeholder="Greater London">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Postal code</label>
+              <input type="text" id="billPostal" placeholder="SW1A 1AA">
+            </div>
+            <div class="field">
+              <label>Phone number <span class="optional">(optional)</span></label>
+              <div class="phone-input">
+                <span class="phone-prefix" id="billPhonePrefix">+1</span>
+                <input type="tel" id="billPhone" placeholder="555 123 4567">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="btn-primary" id="payBtn" style="font-size:1.1rem; padding:18px;">
-        <i class="fas fa-lock" style="margin-right:8px;"></i> Pay & complete order
-      </button>
+
+      <!-- ========== 4. PAYMENT & TOTAL ========== -->
+      <div class="checkout-block payment-block">
+        <h4 class="block-title"><i class="fas fa-credit-card" style="margin-right:8px;"></i>Payment</h4>
+
+        <div class="card-input-wrap">
+          <label>Card number</label>
+          <input type="text" placeholder="4242 4242 4242 4242" maxlength="19" id="cardNumber" inputmode="numeric" autocomplete="cc-number">
+        </div>
+        <div class="card-row">
+          <div class="card-input-wrap">
+            <label>Expiry</label>
+            <input type="text" placeholder="MM / YY" maxlength="7" id="cardExpiry" inputmode="numeric" autocomplete="cc-exp">
+          </div>
+          <div class="card-input-wrap">
+            <label>CVC</label>
+            <input type="text" placeholder="123" maxlength="4" id="cardCvc" inputmode="numeric" autocomplete="cc-csc">
+          </div>
+        </div>
+
+        <div class="secure-note">
+          <i class="fas fa-shield-alt"></i> Secure payment · SSL encrypted
+        </div>
+
+        <div class="total-row">
+          <span>Order total</span>
+          <span id="checkoutGrandTotal">$0</span>
+        </div>
+
+        <button class="btn-primary pay-now-btn" id="payBtn">
+          <i class="fas fa-lock" style="margin-right:8px;"></i> Pay now
+        </button>
+
+        <p class="checkout-disclaimer">
+          <i class="fas fa-heart" style="color:#ff8a5c;"></i> Each doll is packed with love. You'll receive a confirmation email shortly.
+        </p>
+      </div>
+
     </div>
   </div>
+</div>
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
