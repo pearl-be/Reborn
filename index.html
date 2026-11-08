@@ -905,6 +905,512 @@
       box-shadow: 0 2px 0 #5e3d99;
     }
 
+    /* ---------- PROFESSIONAL CHECKOUT ---------- */
+.checkout-modal {
+  max-width: 640px;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+  max-height: 92vh;
+}
+
+.checkout-modal .modal-header {
+  padding: 26px 28px 18px;
+  margin-bottom: 0;
+  border-bottom: 2px dashed var(--purple-light);
+  background: linear-gradient(135deg, #fffdf7, #faf2ff);
+  flex-shrink: 0;
+}
+
+.checkout-scroll {
+  overflow-y: auto;
+  padding: 20px 28px 28px;
+  flex: 1;
+}
+
+.checkout-block {
+  background: #fffdf7;
+  border: 2px solid var(--purple-light);
+  border-radius: 28px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+
+.block-title {
+  font-family: 'Baloo 2', cursive, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin-bottom: 16px;
+}
+
+/* Order summary collapsible */
+.summary-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  cursor: pointer;
+  padding: 0;
+}
+
+.summary-toggle-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.summary-count {
+  background: var(--yellow);
+  color: var(--text-dark);
+  padding: 3px 12px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.summary-chevron {
+  transition: transform 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.summary-toggle[aria-expanded="false"] .summary-chevron {
+  transform: rotate(-90deg);
+}
+
+.summary-body {
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.summary-body.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+/* Form fields */
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+}
+
+.field .optional {
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: #b09ec6;
+}
+
+.field input[type="text"],
+.field input[type="tel"],
+.field input[type="email"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 60px;
+  border: 2px solid var(--purple-light);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: white;
+  color: var(--text-dark);
+}
+
+.field input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.field-row .field {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Phone input with prefix */
+.phone-input {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--purple-light);
+  border-radius: 60px;
+  background: white;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.phone-input:focus-within {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+}
+
+.phone-prefix {
+  padding: 13px 8px 13px 18px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--purple-deep);
+  background: var(--purple-light);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  min-width: 58px;
+  justify-content: center;
+}
+
+.phone-input input {
+  flex: 1;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 13px 16px 13px 10px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  min-width: 0;
+}
+
+/* Searchable country select */
+.searchable-select {
+  position: relative;
+}
+
+.searchable-select .select-search {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 60px;
+  border: 2px solid var(--purple-light);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  background: white;
+  color: var(--text-dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchable-select .select-search:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+}
+
+.searchable-select .select-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid var(--purple-light);
+  border-radius: 20px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 20;
+  display: none;
+  box-shadow: 0 12px 30px -8px rgba(90, 40, 160, 0.25);
+  padding: 6px;
+}
+
+.searchable-select .select-list.open {
+  display: block;
+}
+
+.select-option {
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-option:hover,
+.select-option.highlighted {
+  background: var(--purple-light);
+}
+
+.select-option .flag {
+  font-size: 1rem;
+}
+
+.select-option.selected {
+  background: var(--yellow-soft);
+  font-weight: 600;
+}
+
+.select-no-results {
+  padding: 14px;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+/* Billing toggle */
+.billing-block {
+  padding: 18px 22px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-row input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 2px solid var(--purple);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.checkbox-row input:checked + .checkmark {
+  background: var(--purple-deep);
+  border-color: var(--purple-deep);
+}
+
+.checkbox-row input:checked + .checkmark::after {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.checkbox-row input:focus-visible + .checkmark {
+  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.3);
+}
+
+.checkbox-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Billing form smooth expand */
+.billing-form {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.35s ease, margin-top 0.35s ease, padding-top 0.35s ease;
+  margin-top: 0;
+  border-top: 2px dashed var(--purple-light);
+}
+
+.billing-form.expanded {
+  max-height: 1400px;
+  opacity: 1;
+  margin-top: 18px;
+  padding-top: 18px;
+}
+
+/* Payment block */
+.payment-block .card-input-wrap {
+  background: white;
+  border-radius: 20px;
+  padding: 14px 18px;
+  border: 2px solid var(--purple-light);
+  margin-bottom: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.payment-block .card-input-wrap:focus-within {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+}
+
+.payment-block .card-input-wrap label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.payment-block .card-input-wrap input {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  color: var(--text-dark);
+  background: transparent;
+}
+
+.card-row {
+  display: flex;
+  gap: 12px;
+}
+
+.card-row .card-input-wrap {
+  flex: 1;
+}
+
+.secure-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin: 4px 0 18px;
+}
+
+.secure-note i {
+  color: #6bbf59;
+}
+
+/* Total row */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--yellow-soft), #f6e9ff);
+  padding: 16px 22px;
+  border-radius: 22px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.total-row span:last-child {
+  font-size: 1.4rem;
+  color: var(--purple-deep);
+  font-family: 'Baloo 2', cursive, sans-serif;
+}
+
+.pay-now-btn {
+  font-size: 1.1rem !important;
+  padding: 18px !important;
+  margin-bottom: 12px;
+}
+
+.checkout-disclaimer {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Checkout summary lines */
+.checkout-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.checkout-line span:first-child {
+  flex: 1;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.checkout-line.total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 2px dashed #e6d5b3;
+}
+
+.checkout-line.total span:last-child {
+  color: var(--purple-deep);
+  font-family: 'Baloo 2', cursive, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .checkout-modal {
+    max-height: 96vh;
+    border-radius: 28px;
+  }
+  .checkout-modal .modal-header {
+    padding: 20px 20px 14px;
+  }
+  .checkout-modal .modal-header h3 {
+    font-size: 1.4rem;
+  }
+  .checkout-scroll {
+    padding: 16px 18px 22px;
+  }
+  .checkout-block {
+    padding: 16px 16px;
+    border-radius: 22px;
+    margin-bottom: 14px;
+  }
+  .field-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .field {
+    margin-bottom: 12px;
+  }
+  .field-row .field {
+    margin-bottom: 12px;
+  }
+  .phone-prefix {
+    padding: 12px 6px 12px 14px;
+    min-width: 52px;
+    font-size: 0.85rem;
+  }
+  .field input[type="text"],
+  .field input[type="tel"],
+  .select-search {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  .total-row span:last-child {
+    font-size: 1.25rem;
+  }
+  .card-row {
+    gap: 8px;
+  }
+}
+    
     /* ---------- CHECKOUT MODAL ---------- */
     .checkout-summary {
       background: var(--yellow-soft);
