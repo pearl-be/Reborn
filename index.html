@@ -2336,96 +2336,225 @@
         document.querySelector('.filter-bar').scrollIntoView({ behavior: 'smooth' });
       });
 
-      // ---------- CHECKOUT ----------
-      document.getElementById('checkoutBtn').addEventListener('click', () => {
-        if (cart.length === 0) {
-          alert('Your basket is empty. Add some dolls first!');
-          return;
-        }
-        closeCartDrawer();
-        updateCheckoutSummary();
-        openOverlay(checkoutOverlay);
-      });
+      // ---------- COUNTRY DATA ----------
+const COUNTRIES = [
+  { code: 'AF', name: 'Afghanistan', dial: '+93', flag: '🇦🇫' },
+  { code: 'AL', name: 'Albania', dial: '+355', flag: '🇦🇱' },
+  { code: 'DZ', name: 'Algeria', dial: '+213', flag: '🇩🇿' },
+  { code: 'AR', name: 'Argentina', dial: '+54', flag: '🇦🇷' },
+  { code: 'AU', name: 'Australia', dial: '+61', flag: '🇦🇺' },
+  { code: 'AT', name: 'Austria', dial: '+43', flag: '🇦🇹' },
+  { code: 'BE', name: 'Belgium', dial: '+32', flag: '🇧🇪' },
+  { code: 'BR', name: 'Brazil', dial: '+55', flag: '🇧🇷' },
+  { code: 'CA', name: 'Canada', dial: '+1', flag: '🇨🇦' },
+  { code: 'CN', name: 'China', dial: '+86', flag: '🇨🇳' },
+  { code: 'CO', name: 'Colombia', dial: '+57', flag: '🇨🇴' },
+  { code: 'DK', name: 'Denmark', dial: '+45', flag: '🇩🇰' },
+  { code: 'EG', name: 'Egypt', dial: '+20', flag: '🇪🇬' },
+  { code: 'FI', name: 'Finland', dial: '+358', flag: '🇫🇮' },
+  { code: 'FR', name: 'France', dial: '+33', flag: '🇫🇷' },
+  { code: 'DE', name: 'Germany', dial: '+49', flag: '🇩🇪' },
+  { code: 'GH', name: 'Ghana', dial: '+233', flag: '🇬🇭' },
+  { code: 'GR', name: 'Greece', dial: '+30', flag: '🇬🇷' },
+  { code: 'HK', name: 'Hong Kong', dial: '+852', flag: '🇭🇰' },
+  { code: 'IN', name: 'India', dial: '+91', flag: '🇮🇳' },
+  { code: 'ID', name: 'Indonesia', dial: '+62', flag: '🇮🇩' },
+  { code: 'IE', name: 'Ireland', dial: '+353', flag: '🇮🇪' },
+  { code: 'IL', name: 'Israel', dial: '+972', flag: '🇮🇱' },
+  { code: 'IT', name: 'Italy', dial: '+39', flag: '🇮🇹' },
+  { code: 'JM', name: 'Jamaica', dial: '+1', flag: '🇯🇲' },
+  { code: 'JP', name: 'Japan', dial: '+81', flag: '🇯🇵' },
+  { code: 'KE', name: 'Kenya', dial: '+254', flag: '🇰🇪' },
+  { code: 'KW', name: 'Kuwait', dial: '+965', flag: '🇰🇼' },
+  { code: 'MY', name: 'Malaysia', dial: '+60', flag: '🇲🇾' },
+  { code: 'MX', name: 'Mexico', dial: '+52', flag: '🇲🇽' },
+  { code: 'MA', name: 'Morocco', dial: '+212', flag: '🇲🇦' },
+  { code: 'NL', name: 'Netherlands', dial: '+31', flag: '🇳🇱' },
+  { code: 'NZ', name: 'New Zealand', dial: '+64', flag: '🇳🇿' },
+  { code: 'NG', name: 'Nigeria', dial: '+234', flag: '🇳🇬' },
+  { code: 'NO', name: 'Norway', dial: '+47', flag: '🇳🇴' },
+  { code: 'PK', name: 'Pakistan', dial: '+92', flag: '🇵🇰' },
+  { code: 'PH', name: 'Philippines', dial: '+63', flag: '🇵🇭' },
+  { code: 'PL', name: 'Poland', dial: '+48', flag: '🇵🇱' },
+  { code: 'PT', name: 'Portugal', dial: '+351', flag: '🇵🇹' },
+  { code: 'QA', name: 'Qatar', dial: '+974', flag: '🇶🇦' },
+  { code: 'RO', name: 'Romania', dial: '+40', flag: '🇷🇴' },
+  { code: 'SA', name: 'Saudi Arabia', dial: '+966', flag: '🇸🇦' },
+  { code: 'SG', name: 'Singapore', dial: '+65', flag: '🇸🇬' },
+  { code: 'ZA', name: 'South Africa', dial: '+27', flag: '🇿🇦' },
+  { code: 'KR', name: 'South Korea', dial: '+82', flag: '🇰🇷' },
+  { code: 'ES', name: 'Spain', dial: '+34', flag: '🇪🇸' },
+  { code: 'LK', name: 'Sri Lanka', dial: '+94', flag: '🇱🇰' },
+  { code: 'SE', name: 'Sweden', dial: '+46', flag: '🇸🇪' },
+  { code: 'CH', name: 'Switzerland', dial: '+41', flag: '🇨🇭' },
+  { code: 'TZ', name: 'Tanzania', dial: '+255', flag: '🇹🇿' },
+  { code: 'TH', name: 'Thailand', dial: '+66', flag: '🇹🇭' },
+  { code: 'TR', name: 'Turkey', dial: '+90', flag: '🇹🇷' },
+  { code: 'UG', name: 'Uganda', dial: '+256', flag: '🇺🇬' },
+  { code: 'AE', name: 'United Arab Emirates', dial: '+971', flag: '🇦🇪' },
+  { code: 'GB', name: 'United Kingdom', dial: '+44', flag: '🇬🇧' },
+  { code: 'US', name: 'United States', dial: '+1', flag: '🇺🇸' },
+  { code: 'VN', name: 'Vietnam', dial: '+84', flag: '🇻🇳' },
+  { code: 'ZM', name: 'Zambia', dial: '+260', flag: '🇿🇲' },
+  { code: 'ZW', name: 'Zimbabwe', dial: '+263', flag: '🇿🇼' }
+];
 
-      document.getElementById('payBtn').addEventListener('click', () => {
-        const cardNum = document.getElementById('cardNumber').value.trim();
-        const expiry = document.getElementById('cardExpiry').value.trim();
-        const cvc = document.getElementById('cardCvc').value.trim();
+function getCountryByCode(code) {
+  return COUNTRIES.find(c => c.code === code);
+}
 
-        if (!cardNum || !expiry || !cvc) {
-          alert('Please fill in all payment details.');
-          return;
-        }
+// ---------- CHECKOUT SUMMARY ----------
+function updateCheckoutSummary() {
+  const summaryEl = document.getElementById('checkoutSummary');
+  const countEl = document.getElementById('summaryCount');
+  const totalEl = document.getElementById('checkoutGrandTotal');
 
-        // Simulate successful payment
-        const total = cart.reduce((sum, item) => {
-          const p = products.find(pr => pr.id === item.id);
-          return sum + (p ? p.price * item.qty : 0);
-        }, 0);
+  let subtotal = 0;
+  let itemCount = 0;
+  let itemsHtml = '';
 
-        closeOverlay(checkoutOverlay);
-        alert(`🎉 Payment successful! Thank you for your order of $${total}. Your dolls will be on their way soon!`);
-        cart = [];
-        updateCartBadge();
-        updateAllProductButtons();
-        renderCartItems();
-        updateCheckoutSummary();
-      });
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.id);
+    if (!product) return;
+    const lineTotal = product.price * item.qty;
+    subtotal += lineTotal;
+    itemCount += item.qty;
+    itemsHtml += `<div class="checkout-line"><span>${product.name} × ${item.qty}</span><span>$${lineTotal}</span></div>`;
+  });
 
-      // ---------- SEARCH ----------
-      document.getElementById('searchInput').addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-        if (!query) {
-          searchResults.innerHTML = `<p style="color:var(--text-soft); text-align:center; padding:20px;">Type to search our collection</p>`;
-          return;
-        }
-        const results = products.filter(p => 
-          p.name.toLowerCase().includes(query) || 
-          p.description.toLowerCase().includes(query) ||
-          p.type.toLowerCase().includes(query)
-        );
-        if (results.length === 0) {
-          searchResults.innerHTML = `<p style="color:var(--text-soft); text-align:center; padding:20px;">No dolls match "${query}"</p>`;
-          return;
-        }
-        let html = '';
-        results.forEach(p => {
-          html += `
-            <div class="search-result-item" data-id="${p.id}">
-              <img src="${p.image}" alt="${p.name}">
-              <div class="info">
-                <h4>${p.name}</h4>
-                <p>$${p.price} · ${p.type.replace('-', ' ')}</p>
-              </div>
-            </div>
-          `;
-        });
-        searchResults.innerHTML = html;
+  if (summaryEl) {
+    summaryEl.innerHTML = itemsHtml
+      ? `${itemsHtml}<div class="checkout-line total"><span>Subtotal</span><span>$${subtotal}</span></div>`
+      : '<p style="color:var(--text-soft);">No items in your basket.</p>';
+  }
 
-        // Click on search result -> add to cart & close
-        searchResults.querySelectorAll('.search-result-item').forEach(item => {
-          item.addEventListener('click', function() {
-            const id = parseInt(this.getAttribute('data-id'));
-            const existing = cart.find(i => i.id === id);
-            if (existing) {
-              existing.qty += 1;
-            } else {
-              cart.push({ id: id, qty: 1 });
-            }
-            updateCartBadge();
-            updateAllProductButtons();
-            renderCartItems();
-            updateCheckoutSummary();
-            closeOverlay(searchOverlay);
-            openCartDrawer();
-          });
-        });
-      });
+  if (countEl) countEl.textContent = `${itemCount} item${itemCount !== 1 ? 's' : ''}`;
+  if (totalEl) totalEl.textContent = `$${subtotal}`;
+}
 
-      document.getElementById('searchSubmit').addEventListener('click', function() {
-        const input = document.getElementById('searchInput');
-        input.dispatchEvent(new Event('input'));
-      });
+// ---------- SEARCHABLE COUNTRY SELECT ----------
+function initSearchableSelect(wrapper, onChange) {
+  const searchInput = wrapper.querySelector('.select-search');
+  const listEl = wrapper.querySelector('.select-list');
+  const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+  let highlightedIndex = -1;
+
+  function renderOptions(filter = '') {
+    const q = filter.toLowerCase().trim();
+    const filtered = COUNTRIES.filter(c =>
+      c.name.toLowerCase().includes(q) || c.dial.includes(q) || c.code.toLowerCase().includes(q)
+    );
+
+    if (filtered.length === 0) {
+      listEl.innerHTML = '<div class="select-no-results">No countries found</div>';
+      return;
+    }
+
+    listEl.innerHTML = filtered.map((c, i) => `
+      <div class="select-option ${hiddenInput.value === c.code ? 'selected' : ''}" data-code="${c.code}" data-index="${i}">
+        <span class="flag">${c.flag}</span>
+        <span>${c.name}</span>
+        <span style="margin-left:auto; color:var(--text-soft); font-size:0.8rem;">${c.dial}</span>
+      </div>
+    `).join('');
+
+    listEl.querySelectorAll('.select-option').forEach(opt => {
+      opt.addEventListener('click', () => selectCountry(opt.getAttribute('data-code')));
+    });
+  }
+
+  function selectCountry(code) {
+    const country = getCountryByCode(code);
+    if (!country) return;
+    hiddenInput.value = country.code;
+    searchInput.value = `${country.flag}  ${country.name}`;
+    listEl.classList.remove('open');
+    if (onChange) onChange(country);
+  }
+
+  function openList() {
+    listEl.classList.add('open');
+    highlightedIndex = -1;
+    renderOptions('');
+  }
+
+  function closeList() {
+    listEl.classList.remove('open');
+  }
+
+  searchInput.addEventListener('focus', openList);
+  searchInput.addEventListener('input', function() {
+    renderOptions(this.value);
+    listEl.classList.add('open');
+  });
+
+  searchInput.addEventListener('keydown', function(e) {
+    const options = listEl.querySelectorAll('.select-option');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      highlightedIndex = Math.min(highlightedIndex + 1, options.length - 1);
+      updateHighlight(options);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      highlightedIndex = Math.max(highlightedIndex - 1, 0);
+      updateHighlight(options);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (highlightedIndex >= 0 && options[highlightedIndex]) {
+        selectCountry(options[highlightedIndex].getAttribute('data-code'));
+      }
+    } else if (e.key === 'Escape') {
+      closeList();
+      searchInput.blur();
+    }
+  });
+
+  function updateHighlight(options) {
+    options.forEach((o, i) => o.classList.toggle('highlighted', i === highlightedIndex));
+    if (options[highlightedIndex]) {
+      options[highlightedIndex].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!wrapper.contains(e.target)) closeList();
+  });
+
+  // Initialize default to US
+  const initial = getCountryByCode('US');
+  if (initial) {
+    hiddenInput.value = initial.code;
+    searchInput.value = `${initial.flag}  ${initial.name}`;
+    if (onChange) onChange(initial);
+  }
+
+  return { selectCountry, getValue: () => hiddenInput.value };
+}
+
+// ---------- PHONE PREFIX ----------
+function updatePhonePrefix(prefixEl, country) {
+  if (prefixEl && country) prefixEl.textContent = country.dial;
+}
+
+// ---------- BILLING TOGGLE ----------
+const sameAsShipping = document.getElementById('sameAsShipping');
+const billingForm = document.getElementById('billingForm');
+
+function toggleBillingForm() {
+  if (!sameAsShipping || !billingForm) return;
+  if (sameAsShipping.checked) {
+    billingForm.classList.remove('expanded');
+  } else {
+    billingForm.classList.add('expanded');
+  }
+}
+
+if (sameAsShipping) {
+  sameAsShipping.addEventListener('change', toggleBillingForm);
+}
+
+// ---------- SUMMARY TOGGLE ----------
+const summaryToggle = document.getElementById('
 
       // ---------- WISHLIST ----------
       function renderWishlist() {
