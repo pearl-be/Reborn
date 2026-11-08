@@ -906,562 +906,367 @@
     }
 
     /* ---------- PROFESSIONAL CHECKOUT ---------- */
-.checkout-modal {
-  max-width: 640px;
-  padding: 0 !important;
-  overflow: hidden !important;
-  display: flex;
-  flex-direction: column;
-  max-height: 92vh;
-}
+    .checkout-modal {
+      max-width: 640px;
+      padding: 0 !important;
+      overflow: hidden !important;
+      display: flex;
+      flex-direction: column;
+      max-height: 92vh;
+    }
 
-.checkout-modal .modal-header {
-  padding: 26px 28px 18px;
-  margin-bottom: 0;
-  border-bottom: 2px dashed var(--purple-light);
-  background: linear-gradient(135deg, #fffdf7, #faf2ff);
-  flex-shrink: 0;
-}
+    .checkout-modal .modal-header {
+      padding: 26px 28px 18px;
+      margin-bottom: 0;
+      border-bottom: 2px dashed var(--purple-light);
+      background: linear-gradient(135deg, #fffdf7, #faf2ff);
+      flex-shrink: 0;
+    }
 
-.checkout-scroll {
-  overflow-y: auto;
-  padding: 20px 28px 28px;
-  flex: 1;
-}
+    .checkout-scroll {
+      overflow-y: auto;
+      padding: 20px 28px 28px;
+      flex: 1;
+    }
 
-.checkout-block {
-  background: #fffdf7;
-  border: 2px solid var(--purple-light);
-  border-radius: 28px;
-  padding: 20px 22px;
-  margin-bottom: 18px;
-}
-
-.block-title {
-  font-family: 'Baloo 2', cursive, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--purple-deep);
-  margin-bottom: 16px;
-}
-
-/* Order summary collapsible */
-.summary-toggle {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  border: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--purple-deep);
-  cursor: pointer;
-  padding: 0;
-}
-
-.summary-toggle-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-soft);
-}
-
-.summary-count {
-  background: var(--yellow);
-  color: var(--text-dark);
-  padding: 3px 12px;
-  border-radius: 40px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.summary-chevron {
-  transition: transform 0.3s ease;
-  font-size: 0.85rem;
-}
-
-.summary-toggle[aria-expanded="false"] .summary-chevron {
-  transform: rotate(-90deg);
-}
-
-.summary-body {
-  max-height: 400px;
-  overflow: hidden;
-  transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
-  opacity: 1;
-  margin-top: 16px;
-}
-
-.summary-body.collapsed {
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0;
-}
-
-/* Form fields */
-.field {
-  margin-bottom: 14px;
-}
-
-.field label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-soft);
-  margin-bottom: 6px;
-}
-
-.field .optional {
-  font-weight: 400;
-  font-size: 0.72rem;
-  color: #b09ec6;
-}
-
-.field input[type="text"],
-.field input[type="tel"],
-.field input[type="email"],
-.field input[type="password"] {
-  width: 100%;
-  padding: 13px 18px;
-  border-radius: 60px;
-  border: 2px solid var(--purple-light);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  background: white;
-  color: var(--text-dark);
-}
-
-.field input:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
-}
-
-.field-row {
-  display: flex;
-  gap: 12px;
-}
-
-.field-row .field {
-  flex: 1;
-  min-width: 0;
-}
-
-/* Phone input with prefix */
-.phone-input {
-  display: flex;
-  align-items: center;
-  border: 2px solid var(--purple-light);
-  border-radius: 60px;
-  background: white;
-  overflow: hidden;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.phone-input:focus-within {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
-}
-
-.phone-prefix {
-  padding: 13px 8px 13px 18px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--purple-deep);
-  background: var(--purple-light);
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  min-width: 58px;
-  justify-content: center;
-}
-
-.phone-input input {
-  flex: 1;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 13px 16px 13px 10px !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  min-width: 0;
-}
-
-/* Searchable country select */
-.searchable-select {
-  position: relative;
-}
-
-.searchable-select .select-search {
-  width: 100%;
-  padding: 13px 18px;
-  border-radius: 60px;
-  border: 2px solid var(--purple-light);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  outline: none;
-  background: white;
-  color: var(--text-dark);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.searchable-select .select-search:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
-}
-
-.searchable-select .select-list {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  right: 0;
-  background: white;
-  border: 2px solid var(--purple-light);
-  border-radius: 20px;
-  max-height: 220px;
-  overflow-y: auto;
-  z-index: 20;
-  display: none;
-  box-shadow: 0 12px 30px -8px rgba(90, 40, 160, 0.25);
-  padding: 6px;
-}
-
-.searchable-select .select-list.open {
-  display: block;
-}
-
-.select-option {
-  padding: 10px 16px;
-  border-radius: 14px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  color: var(--text-dark);
-  transition: background 0.15s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.select-option:hover,
-.select-option.highlighted {
-  background: var(--purple-light);
-}
-
-.select-option .flag {
-  font-size: 1rem;
-}
-
-.select-option.selected {
-  background: var(--yellow-soft);
-  font-weight: 600;
-}
-
-.select-no-results {
-  padding: 14px;
-  text-align: center;
-  color: var(--text-soft);
-  font-size: 0.85rem;
-}
-
-/* Billing toggle */
-.billing-block {
-  padding: 18px 22px;
-}
-
-.checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.checkbox-row input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.checkmark {
-  width: 24px;
-  height: 24px;
-  border-radius: 8px;
-  border: 2px solid var(--purple);
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.2s;
-  position: relative;
-}
-
-.checkbox-row input:checked + .checkmark {
-  background: var(--purple-deep);
-  border-color: var(--purple-deep);
-}
-
-.checkbox-row input:checked + .checkmark::after {
-  content: '\f00c';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  font-size: 0.7rem;
-  color: white;
-}
-
-.checkbox-row input:focus-visible + .checkmark {
-  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.3);
-}
-
-.checkbox-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-dark);
-}
-
-/* Billing form smooth expand */
-.billing-form {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.35s ease, margin-top 0.35s ease, padding-top 0.35s ease;
-  margin-top: 0;
-  border-top: 2px dashed var(--purple-light);
-}
-
-.billing-form.expanded {
-  max-height: 1400px;
-  opacity: 1;
-  margin-top: 18px;
-  padding-top: 18px;
-}
-
-/* Payment block */
-.payment-block .card-input-wrap {
-  background: white;
-  border-radius: 20px;
-  padding: 14px 18px;
-  border: 2px solid var(--purple-light);
-  margin-bottom: 12px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.payment-block .card-input-wrap:focus-within {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
-}
-
-.payment-block .card-input-wrap label {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--text-soft);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.payment-block .card-input-wrap input {
-  width: 100%;
-  border: none;
-  font-size: 1rem;
-  font-family: 'Inter', sans-serif;
-  outline: none;
-  color: var(--text-dark);
-  background: transparent;
-}
-
-.card-row {
-  display: flex;
-  gap: 12px;
-}
-
-.card-row .card-input-wrap {
-  flex: 1;
-}
-
-.secure-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 0.8rem;
-  color: var(--text-soft);
-  margin: 4px 0 18px;
-}
-
-.secure-note i {
-  color: #6bbf59;
-}
-
-/* Total row */
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(135deg, var(--yellow-soft), #f6e9ff);
-  padding: 16px 22px;
-  border-radius: 22px;
-  margin-bottom: 16px;
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--text-dark);
-}
-
-.total-row span:last-child {
-  font-size: 1.4rem;
-  color: var(--purple-deep);
-  font-family: 'Baloo 2', cursive, sans-serif;
-}
-
-.pay-now-btn {
-  font-size: 1.1rem !important;
-  padding: 18px !important;
-  margin-bottom: 12px;
-}
-
-.checkout-disclaimer {
-  font-size: 0.8rem;
-  color: var(--text-soft);
-  text-align: center;
-  line-height: 1.5;
-}
-
-/* Checkout summary lines */
-.checkout-line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  margin-bottom: 8px;
-  gap: 12px;
-}
-
-.checkout-line span:first-child {
-  flex: 1;
-  color: var(--text-dark);
-  font-weight: 500;
-}
-
-.checkout-line.total {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-dark);
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 2px dashed #e6d5b3;
-}
-
-.checkout-line.total span:last-child {
-  color: var(--purple-deep);
-  font-family: 'Baloo 2', cursive, sans-serif;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  .checkout-modal {
-    max-height: 96vh;
-    border-radius: 28px;
-  }
-  .checkout-modal .modal-header {
-    padding: 20px 20px 14px;
-  }
-  .checkout-modal .modal-header h3 {
-    font-size: 1.4rem;
-  }
-  .checkout-scroll {
-    padding: 16px 18px 22px;
-  }
-  .checkout-block {
-    padding: 16px 16px;
-    border-radius: 22px;
-    margin-bottom: 14px;
-  }
-  .field-row {
-    flex-direction: column;
-    gap: 0;
-  }
-  .field {
-    margin-bottom: 12px;
-  }
-  .field-row .field {
-    margin-bottom: 12px;
-  }
-  .phone-prefix {
-    padding: 12px 6px 12px 14px;
-    min-width: 52px;
-    font-size: 0.85rem;
-  }
-  .field input[type="text"],
-  .field input[type="tel"],
-  .select-search {
-    padding: 12px 16px;
-    font-size: 0.9rem;
-  }
-  .total-row span:last-child {
-    font-size: 1.25rem;
-  }
-  .card-row {
-    gap: 8px;
-  }
-}
-    
-    /* ---------- CHECKOUT MODAL ---------- */
-    .checkout-summary {
-      background: var(--yellow-soft);
+    .checkout-block {
+      background: #fffdf7;
+      border: 2px solid var(--purple-light);
       border-radius: 28px;
       padding: 20px 22px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
-    .checkout-summary h4 {
-      font-size: 1rem;
+    .block-title {
+      font-family: 'Baloo 2', cursive, sans-serif;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 12px;
+      color: var(--purple-deep);
+      margin-bottom: 16px;
     }
 
-    .checkout-line {
+    /* Order summary collapsible */
+    .summary-toggle {
+      width: 100%;
       display: flex;
       justify-content: space-between;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      margin-bottom: 8px;
-    }
-
-    .checkout-line.total {
+      align-items: center;
+      background: transparent;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
       font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--text-dark);
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 2px dashed #e6d5b3;
+      color: var(--purple-deep);
+      cursor: pointer;
+      padding: 0;
     }
 
-    .card-input-wrap {
-      background: white;
-      border-radius: 24px;
-      padding: 16px 18px;
-      border: 2px solid var(--purple-light);
+    .summary-toggle-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-soft);
+    }
+
+    .summary-count {
+      background: var(--yellow);
+      color: var(--text-dark);
+      padding: 3px 12px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .summary-chevron {
+      transition: transform 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .summary-toggle[aria-expanded="false"] .summary-chevron {
+      transform: rotate(-90deg);
+    }
+
+    .summary-body {
+      max-height: 400px;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
+      opacity: 1;
+      margin-top: 16px;
+    }
+
+    .summary-body.collapsed {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    /* Form fields */
+    .field {
       margin-bottom: 14px;
     }
 
-    .card-input-wrap label {
+    .field label {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .field .optional {
+      font-weight: 400;
+      font-size: 0.72rem;
+      color: #b09ec6;
+    }
+
+    .field input[type="text"],
+    .field input[type="tel"],
+    .field input[type="email"],
+    .field input[type="password"] {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 60px;
+      border: 2px solid var(--purple-light);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: white;
+      color: var(--text-dark);
+    }
+
+    .field input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+    }
+
+    .field-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .field-row .field {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Phone input with prefix */
+    .phone-input {
+      display: flex;
+      align-items: center;
+      border: 2px solid var(--purple-light);
+      border-radius: 60px;
+      background: white;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .phone-input:focus-within {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+    }
+
+    .phone-prefix {
+      padding: 13px 8px 13px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--purple-deep);
+      background: var(--purple-light);
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      min-width: 58px;
+      justify-content: center;
+    }
+
+    .phone-input input {
+      flex: 1;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 13px 16px 13px 10px !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      min-width: 0;
+    }
+
+    /* Searchable country select */
+    .searchable-select {
+      position: relative;
+    }
+
+    .searchable-select .select-search {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 60px;
+      border: 2px solid var(--purple-light);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      background: white;
+      color: var(--text-dark);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .searchable-select .select-search:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+    }
+
+    .searchable-select .select-list {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: white;
+      border: 2px solid var(--purple-light);
+      border-radius: 20px;
+      max-height: 220px;
+      overflow-y: auto;
+      z-index: 20;
+      display: none;
+      box-shadow: 0 12px 30px -8px rgba(90, 40, 160, 0.25);
+      padding: 6px;
+    }
+
+    .searchable-select .select-list.open {
+      display: block;
+    }
+
+    .select-option {
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .select-option:hover,
+    .select-option.highlighted {
+      background: var(--purple-light);
+    }
+
+    .select-option .flag {
+      font-size: 1rem;
+    }
+
+    .select-option.selected {
+      background: var(--yellow-soft);
+      font-weight: 600;
+    }
+
+    .select-no-results {
+      padding: 14px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.85rem;
+    }
+
+    /* Billing toggle */
+    .billing-block {
+      padding: 18px 22px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .checkmark {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      border: 2px solid var(--purple);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .checkbox-row input:checked + .checkmark {
+      background: var(--purple-deep);
+      border-color: var(--purple-deep);
+    }
+
+    .checkbox-row input:checked + .checkmark::after {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.7rem;
+      color: white;
+    }
+
+    .checkbox-row input:focus-visible + .checkmark {
+      box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.3);
+    }
+
+    .checkbox-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* Billing form smooth expand */
+    .billing-form {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.35s ease, margin-top 0.35s ease, padding-top 0.35s ease;
+      margin-top: 0;
+      border-top: 2px dashed var(--purple-light);
+    }
+
+    .billing-form.expanded {
+      max-height: 1400px;
+      opacity: 1;
+      margin-top: 18px;
+      padding-top: 18px;
+    }
+
+    /* Payment block */
+    .payment-block .card-input-wrap {
+      background: white;
+      border-radius: 20px;
+      padding: 14px 18px;
+      border: 2px solid var(--purple-light);
+      margin-bottom: 12px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .payment-block .card-input-wrap:focus-within {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 4px rgba(185, 131, 255, 0.15);
+    }
+
+    .payment-block .card-input-wrap label {
+      display: block;
+      font-size: 0.7rem;
       font-weight: 600;
       color: var(--text-soft);
       margin-bottom: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
     }
 
-    .card-input-wrap input {
+    .payment-block .card-input-wrap input {
       width: 100%;
       border: none;
       font-size: 1rem;
@@ -1487,14 +1292,77 @@
       gap: 8px;
       font-size: 0.8rem;
       color: var(--text-soft);
-      margin: 14px 0 18px;
+      margin: 4px 0 18px;
     }
 
     .secure-note i {
       color: #6bbf59;
     }
 
-    /* ---------- RESPONSIVE ---------- */
+    /* Total row */
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, var(--yellow-soft), #f6e9ff);
+      padding: 16px 22px;
+      border-radius: 22px;
+      margin-bottom: 16px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    .total-row span:last-child {
+      font-size: 1.4rem;
+      color: var(--purple-deep);
+      font-family: 'Baloo 2', cursive, sans-serif;
+    }
+
+    .pay-now-btn {
+      font-size: 1.1rem !important;
+      padding: 18px !important;
+      margin-bottom: 12px;
+    }
+
+    .checkout-disclaimer {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Checkout summary lines */
+    .checkout-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .checkout-line span:first-child {
+      flex: 1;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .checkout-line.total {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 2px dashed #e6d5b3;
+    }
+
+    .checkout-line.total span:last-child {
+      color: var(--purple-deep);
+      font-family: 'Baloo 2', cursive, sans-serif;
+    }
+
+    /* Responsive */
     @media (max-width: 640px) {
       .container {
         padding: 0 18px;
@@ -1566,6 +1434,52 @@
         width: 42px;
         height: 42px;
         font-size: 1.1rem;
+      }
+
+      .checkout-modal {
+        max-height: 96vh;
+        border-radius: 28px;
+      }
+      .checkout-modal .modal-header {
+        padding: 20px 20px 14px;
+      }
+      .checkout-modal .modal-header h3 {
+        font-size: 1.4rem;
+      }
+      .checkout-scroll {
+        padding: 16px 18px 22px;
+      }
+      .checkout-block {
+        padding: 16px 16px;
+        border-radius: 22px;
+        margin-bottom: 14px;
+      }
+      .field-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .field {
+        margin-bottom: 12px;
+      }
+      .field-row .field {
+        margin-bottom: 12px;
+      }
+      .phone-prefix {
+        padding: 12px 6px 12px 14px;
+        min-width: 52px;
+        font-size: 0.85rem;
+      }
+      .field input[type="text"],
+      .field input[type="tel"],
+      .select-search {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+      .total-row span:last-child {
+        font-size: 1.25rem;
+      }
+      .card-row {
+        gap: 8px;
       }
     }
 
@@ -1741,199 +1655,199 @@
   </div>
 
   <!-- CHECKOUT MODAL -->
-<div class="overlay" id="checkoutOverlay">
-  <div class="modal checkout-modal">
-    <div class="modal-header">
-      <h3><i class="fas fa-lock" style="margin-right:8px;"></i>Secure checkout</h3>
-      <button class="modal-close" data-close="checkoutOverlay"><i class="fas fa-times"></i></button>
-    </div>
-
-    <div class="checkout-scroll">
-
-      <!-- ========== 1. ORDER SUMMARY (collapsible) ========== -->
-      <div class="checkout-block order-summary-block">
-        <button type="button" class="summary-toggle" id="summaryToggle" aria-expanded="true">
-          <span><i class="fas fa-receipt" style="margin-right:8px;"></i>Order summary</span>
-          <span class="summary-toggle-right">
-            <span id="summaryCount" class="summary-count">0 items</span>
-            <i class="fas fa-chevron-down summary-chevron"></i>
-          </span>
-        </button>
-        <div class="summary-body" id="summaryBody">
-          <div id="checkoutSummary">
-            <!-- filled by JS -->
-          </div>
-        </div>
+  <div class="overlay" id="checkoutOverlay">
+    <div class="modal checkout-modal">
+      <div class="modal-header">
+        <h3><i class="fas fa-lock" style="margin-right:8px;"></i>Secure checkout</h3>
+        <button class="modal-close" data-close="checkoutOverlay"><i class="fas fa-times"></i></button>
       </div>
 
-      <!-- ========== 2. DELIVERY SECTION ========== -->
-      <div class="checkout-block">
-        <h4 class="block-title"><i class="fas fa-truck" style="margin-right:8px;"></i>Delivery address</h4>
+      <div class="checkout-scroll">
 
-        <div class="field">
-          <label>Country / Region</label>
-          <div class="searchable-select" data-select="shipCountry">
-            <input type="text" class="select-search" placeholder="Search country..." autocomplete="off" />
-            <div class="select-list" role="listbox"></div>
-            <input type="hidden" id="shipCountry" />
-          </div>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label>First name</label>
-            <input type="text" id="shipFirstName" placeholder="Elie" autocomplete="given-name">
-          </div>
-          <div class="field">
-            <label>Last name</label>
-            <input type="text" id="shipLastName" placeholder="Smith" autocomplete="family-name">
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Address</label>
-          <input type="text" id="shipAddress" placeholder="123 Doll Lane" autocomplete="address-line1">
-        </div>
-
-        <div class="field">
-          <label>Apartment, suite, etc. <span class="optional">(optional)</span></label>
-          <input type="text" id="shipApartment" placeholder="Apt 4B" autocomplete="address-line2">
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label>City</label>
-            <input type="text" id="shipCity" placeholder="London" autocomplete="address-level2">
-          </div>
-          <div class="field">
-            <label>State / Province</label>
-            <input type="text" id="shipState" placeholder="Greater London" autocomplete="address-level1">
-          </div>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label>Postal code</label>
-            <input type="text" id="shipPostal" placeholder="SW1A 1AA" autocomplete="postal-code">
-          </div>
-          <div class="field">
-            <label>Mobile phone</label>
-            <div class="phone-input">
-              <span class="phone-prefix" id="shipPhonePrefix">+1</span>
-              <input type="tel" id="shipPhone" placeholder="555 123 4567" autocomplete="tel">
+        <!-- ========== 1. ORDER SUMMARY (collapsible) ========== -->
+        <div class="checkout-block order-summary-block">
+          <button type="button" class="summary-toggle" id="summaryToggle" aria-expanded="true">
+            <span><i class="fas fa-receipt" style="margin-right:8px;"></i>Order summary</span>
+            <span class="summary-toggle-right">
+              <span id="summaryCount" class="summary-count">0 items</span>
+              <i class="fas fa-chevron-down summary-chevron"></i>
+            </span>
+          </button>
+          <div class="summary-body" id="summaryBody">
+            <div id="checkoutSummary">
+              <!-- filled by JS -->
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ========== 3. BILLING TOGGLE ========== -->
-      <div class="checkout-block billing-block">
-        <label class="checkbox-row">
-          <input type="checkbox" id="sameAsShipping" checked>
-          <span class="checkmark"></span>
-          <span class="checkbox-label">Use shipping address as billing address</span>
-        </label>
-
-        <div class="billing-form" id="billingForm">
-          <h4 class="block-title"><i class="fas fa-file-invoice" style="margin-right:8px;"></i>Billing address</h4>
+        <!-- ========== 2. DELIVERY SECTION ========== -->
+        <div class="checkout-block">
+          <h4 class="block-title"><i class="fas fa-truck" style="margin-right:8px;"></i>Delivery address</h4>
 
           <div class="field">
             <label>Country / Region</label>
-            <div class="searchable-select" data-select="billCountry">
+            <div class="searchable-select" data-select="shipCountry">
               <input type="text" class="select-search" placeholder="Search country..." autocomplete="off" />
               <div class="select-list" role="listbox"></div>
-              <input type="hidden" id="billCountry" />
+              <input type="hidden" id="shipCountry" />
             </div>
           </div>
 
           <div class="field-row">
             <div class="field">
               <label>First name</label>
-              <input type="text" id="billFirstName" placeholder="Elie">
+              <input type="text" id="shipFirstName" placeholder="Elie" autocomplete="given-name">
             </div>
             <div class="field">
               <label>Last name</label>
-              <input type="text" id="billLastName" placeholder="Smith">
+              <input type="text" id="shipLastName" placeholder="Smith" autocomplete="family-name">
             </div>
           </div>
 
           <div class="field">
             <label>Address</label>
-            <input type="text" id="billAddress" placeholder="123 Doll Lane">
+            <input type="text" id="shipAddress" placeholder="123 Doll Lane" autocomplete="address-line1">
           </div>
 
           <div class="field">
             <label>Apartment, suite, etc. <span class="optional">(optional)</span></label>
-            <input type="text" id="billApartment" placeholder="Apt 4B">
+            <input type="text" id="shipApartment" placeholder="Apt 4B" autocomplete="address-line2">
           </div>
 
           <div class="field-row">
             <div class="field">
               <label>City</label>
-              <input type="text" id="billCity" placeholder="London">
+              <input type="text" id="shipCity" placeholder="London" autocomplete="address-level2">
             </div>
             <div class="field">
               <label>State / Province</label>
-              <input type="text" id="billState" placeholder="Greater London">
+              <input type="text" id="shipState" placeholder="Greater London" autocomplete="address-level1">
             </div>
           </div>
 
           <div class="field-row">
             <div class="field">
               <label>Postal code</label>
-              <input type="text" id="billPostal" placeholder="SW1A 1AA">
+              <input type="text" id="shipPostal" placeholder="SW1A 1AA" autocomplete="postal-code">
             </div>
             <div class="field">
-              <label>Phone number <span class="optional">(optional)</span></label>
+              <label>Mobile phone</label>
               <div class="phone-input">
-                <span class="phone-prefix" id="billPhonePrefix">+1</span>
-                <input type="tel" id="billPhone" placeholder="555 123 4567">
+                <span class="phone-prefix" id="shipPhonePrefix">+1</span>
+                <input type="tel" id="shipPhone" placeholder="555 123 4567" autocomplete="tel">
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ========== 4. PAYMENT & TOTAL ========== -->
-      <div class="checkout-block payment-block">
-        <h4 class="block-title"><i class="fas fa-credit-card" style="margin-right:8px;"></i>Payment</h4>
+        <!-- ========== 3. BILLING TOGGLE ========== -->
+        <div class="checkout-block billing-block">
+          <label class="checkbox-row">
+            <input type="checkbox" id="sameAsShipping" checked>
+            <span class="checkmark"></span>
+            <span class="checkbox-label">Use shipping address as billing address</span>
+          </label>
 
-        <div class="card-input-wrap">
-          <label>Card number</label>
-          <input type="text" placeholder="4242 4242 4242 4242" maxlength="19" id="cardNumber" inputmode="numeric" autocomplete="cc-number">
-        </div>
-        <div class="card-row">
-          <div class="card-input-wrap">
-            <label>Expiry</label>
-            <input type="text" placeholder="MM / YY" maxlength="7" id="cardExpiry" inputmode="numeric" autocomplete="cc-exp">
+          <div class="billing-form" id="billingForm">
+            <h4 class="block-title"><i class="fas fa-file-invoice" style="margin-right:8px;"></i>Billing address</h4>
+
+            <div class="field">
+              <label>Country / Region</label>
+              <div class="searchable-select" data-select="billCountry">
+                <input type="text" class="select-search" placeholder="Search country..." autocomplete="off" />
+                <div class="select-list" role="listbox"></div>
+                <input type="hidden" id="billCountry" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label>First name</label>
+                <input type="text" id="billFirstName" placeholder="Elie">
+              </div>
+              <div class="field">
+                <label>Last name</label>
+                <input type="text" id="billLastName" placeholder="Smith">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Address</label>
+              <input type="text" id="billAddress" placeholder="123 Doll Lane">
+            </div>
+
+            <div class="field">
+              <label>Apartment, suite, etc. <span class="optional">(optional)</span></label>
+              <input type="text" id="billApartment" placeholder="Apt 4B">
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label>City</label>
+                <input type="text" id="billCity" placeholder="London">
+              </div>
+              <div class="field">
+                <label>State / Province</label>
+                <input type="text" id="billState" placeholder="Greater London">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label>Postal code</label>
+                <input type="text" id="billPostal" placeholder="SW1A 1AA">
+              </div>
+              <div class="field">
+                <label>Phone number <span class="optional">(optional)</span></label>
+                <div class="phone-input">
+                  <span class="phone-prefix" id="billPhonePrefix">+1</span>
+                  <input type="tel" id="billPhone" placeholder="555 123 4567">
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <!-- ========== 4. PAYMENT & TOTAL ========== -->
+        <div class="checkout-block payment-block">
+          <h4 class="block-title"><i class="fas fa-credit-card" style="margin-right:8px;"></i>Payment</h4>
+
           <div class="card-input-wrap">
-            <label>CVC</label>
-            <input type="text" placeholder="123" maxlength="4" id="cardCvc" inputmode="numeric" autocomplete="cc-csc">
+            <label>Card number</label>
+            <input type="text" placeholder="4242 4242 4242 4242" maxlength="19" id="cardNumber" inputmode="numeric" autocomplete="cc-number">
           </div>
+          <div class="card-row">
+            <div class="card-input-wrap">
+              <label>Expiry</label>
+              <input type="text" placeholder="MM / YY" maxlength="7" id="cardExpiry" inputmode="numeric" autocomplete="cc-exp">
+            </div>
+            <div class="card-input-wrap">
+              <label>CVC</label>
+              <input type="text" placeholder="123" maxlength="4" id="cardCvc" inputmode="numeric" autocomplete="cc-csc">
+            </div>
+          </div>
+
+          <div class="secure-note">
+            <i class="fas fa-shield-alt"></i> Secure payment · SSL encrypted
+          </div>
+
+          <div class="total-row">
+            <span>Order total</span>
+            <span id="checkoutGrandTotal">$0</span>
+          </div>
+
+          <button class="btn-primary pay-now-btn" id="payBtn">
+            <i class="fas fa-lock" style="margin-right:8px;"></i> Pay now
+          </button>
+
+          <p class="checkout-disclaimer">
+            <i class="fas fa-heart" style="color:#ff8a5c;"></i> Each doll is packed with love. You'll receive a confirmation email shortly.
+          </p>
         </div>
 
-        <div class="secure-note">
-          <i class="fas fa-shield-alt"></i> Secure payment · SSL encrypted
-        </div>
-
-        <div class="total-row">
-          <span>Order total</span>
-          <span id="checkoutGrandTotal">$0</span>
-        </div>
-
-        <button class="btn-primary pay-now-btn" id="payBtn">
-          <i class="fas fa-lock" style="margin-right:8px;"></i> Pay now
-        </button>
-
-        <p class="checkout-disclaimer">
-          <i class="fas fa-heart" style="color:#ff8a5c;"></i> Each doll is packed with love. You'll receive a confirmation email shortly.
-        </p>
       </div>
-
     </div>
   </div>
-</div>
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
@@ -2042,6 +1956,73 @@
       const wishlistContent = document.getElementById('wishlistContent');
       const checkoutSummary = document.getElementById('checkoutSummary');
 
+      // ---------- COUNTRY DATA ----------
+      const COUNTRIES = [
+        { code: 'AF', name: 'Afghanistan', dial: '+93', flag: '🇦🇫' },
+        { code: 'AL', name: 'Albania', dial: '+355', flag: '🇦🇱' },
+        { code: 'DZ', name: 'Algeria', dial: '+213', flag: '🇩🇿' },
+        { code: 'AR', name: 'Argentina', dial: '+54', flag: '🇦🇷' },
+        { code: 'AU', name: 'Australia', dial: '+61', flag: '🇦🇺' },
+        { code: 'AT', name: 'Austria', dial: '+43', flag: '🇦🇹' },
+        { code: 'BE', name: 'Belgium', dial: '+32', flag: '🇧🇪' },
+        { code: 'BR', name: 'Brazil', dial: '+55', flag: '🇧🇷' },
+        { code: 'CA', name: 'Canada', dial: '+1', flag: '🇨🇦' },
+        { code: 'CN', name: 'China', dial: '+86', flag: '🇨🇳' },
+        { code: 'CO', name: 'Colombia', dial: '+57', flag: '🇨🇴' },
+        { code: 'DK', name: 'Denmark', dial: '+45', flag: '🇩🇰' },
+        { code: 'EG', name: 'Egypt', dial: '+20', flag: '🇪🇬' },
+        { code: 'FI', name: 'Finland', dial: '+358', flag: '🇫🇮' },
+        { code: 'FR', name: 'France', dial: '+33', flag: '🇫🇷' },
+        { code: 'DE', name: 'Germany', dial: '+49', flag: '🇩🇪' },
+        { code: 'GH', name: 'Ghana', dial: '+233', flag: '🇬🇭' },
+        { code: 'GR', name: 'Greece', dial: '+30', flag: '🇬🇷' },
+        { code: 'HK', name: 'Hong Kong', dial: '+852', flag: '🇭🇰' },
+        { code: 'IN', name: 'India', dial: '+91', flag: '🇮🇳' },
+        { code: 'ID', name: 'Indonesia', dial: '+62', flag: '🇮🇩' },
+        { code: 'IE', name: 'Ireland', dial: '+353', flag: '🇮🇪' },
+        { code: 'IL', name: 'Israel', dial: '+972', flag: '🇮🇱' },
+        { code: 'IT', name: 'Italy', dial: '+39', flag: '🇮🇹' },
+        { code: 'JM', name: 'Jamaica', dial: '+1', flag: '🇯🇲' },
+        { code: 'JP', name: 'Japan', dial: '+81', flag: '🇯🇵' },
+        { code: 'KE', name: 'Kenya', dial: '+254', flag: '🇰🇪' },
+        { code: 'KW', name: 'Kuwait', dial: '+965', flag: '🇰🇼' },
+        { code: 'MY', name: 'Malaysia', dial: '+60', flag: '🇲🇾' },
+        { code: 'MX', name: 'Mexico', dial: '+52', flag: '🇲🇽' },
+        { code: 'MA', name: 'Morocco', dial: '+212', flag: '🇲🇦' },
+        { code: 'NL', name: 'Netherlands', dial: '+31', flag: '🇳🇱' },
+        { code: 'NZ', name: 'New Zealand', dial: '+64', flag: '🇳🇿' },
+        { code: 'NG', name: 'Nigeria', dial: '+234', flag: '🇳🇬' },
+        { code: 'NO', name: 'Norway', dial: '+47', flag: '🇳🇴' },
+        { code: 'PK', name: 'Pakistan', dial: '+92', flag: '🇵🇰' },
+        { code: 'PH', name: 'Philippines', dial: '+63', flag: '🇵🇭' },
+        { code: 'PL', name: 'Poland', dial: '+48', flag: '🇵🇱' },
+        { code: 'PT', name: 'Portugal', dial: '+351', flag: '🇵🇹' },
+        { code: 'QA', name: 'Qatar', dial: '+974', flag: '🇶🇦' },
+        { code: 'RO', name: 'Romania', dial: '+40', flag: '🇷🇴' },
+        { code: 'SA', name: 'Saudi Arabia', dial: '+966', flag: '🇸🇦' },
+        { code: 'SG', name: 'Singapore', dial: '+65', flag: '🇸🇬' },
+        { code: 'ZA', name: 'South Africa', dial: '+27', flag: '🇿🇦' },
+        { code: 'KR', name: 'South Korea', dial: '+82', flag: '🇰🇷' },
+        { code: 'ES', name: 'Spain', dial: '+34', flag: '🇪🇸' },
+        { code: 'LK', name: 'Sri Lanka', dial: '+94', flag: '🇱🇰' },
+        { code: 'SE', name: 'Sweden', dial: '+46', flag: '🇸🇪' },
+        { code: 'CH', name: 'Switzerland', dial: '+41', flag: '🇨🇭' },
+        { code: 'TZ', name: 'Tanzania', dial: '+255', flag: '🇹🇿' },
+        { code: 'TH', name: 'Thailand', dial: '+66', flag: '🇹🇭' },
+        { code: 'TR', name: 'Turkey', dial: '+90', flag: '🇹🇷' },
+        { code: 'UG', name: 'Uganda', dial: '+256', flag: '🇺🇬' },
+        { code: 'AE', name: 'United Arab Emirates', dial: '+971', flag: '🇦🇪' },
+        { code: 'GB', name: 'United Kingdom', dial: '+44', flag: '🇬🇧' },
+        { code: 'US', name: 'United States', dial: '+1', flag: '🇺🇸' },
+        { code: 'VN', name: 'Vietnam', dial: '+84', flag: '🇻🇳' },
+        { code: 'ZM', name: 'Zambia', dial: '+260', flag: '🇿🇲' },
+        { code: 'ZW', name: 'Zimbabwe', dial: '+263', flag: '🇿🇼' }
+      ];
+
+      function getCountryByCode(code) {
+        return COUNTRIES.find(c => c.code === code);
+      }
+
       // ---------- RENDER PRODUCTS ----------
       function renderProducts(filter = 'all') {
         activeFilter = filter;
@@ -2056,7 +2037,6 @@
 
         let html = '';
         filtered.forEach(product => {
-          // rating stars
           let stars = '';
           const fullStars = Math.floor(product.rating);
           const halfStar = product.rating % 1 >= 0.5;
@@ -2071,12 +2051,16 @@
 
           const inCart = cart.find(item => item.id === product.id);
           const qty = inCart ? inCart.qty : 0;
+          const isWishlisted = wishlist.includes(product.id);
 
           html += `
             <div class="product-card" data-type="${product.type}">
               <div class="card-image">
                 <span class="type-tag">${typeLabel}</span>
                 <img src="${product.image}" alt="${product.name}" loading="lazy">
+                <button class="wish-heart" data-id="${product.id}" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,0.9); border:none; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; color:${isWishlisted ? '#ff4d6d' : '#b09ec6'}; font-size:1.1rem; box-shadow:0 4px 10px rgba(0,0,0,0.08); transition:all 0.2s; z-index:2;">
+                  <i class="${isWishlisted ? 'fas fa-heart' : 'far fa-heart'}"></i>
+                </button>
               </div>
               <div class="card-content">
                 <h3 class="product-name">${product.name}</h3>
@@ -2095,28 +2079,38 @@
 
         grid.innerHTML = html;
         attachProductButtonEvents();
+
+        document.querySelectorAll('.wish-heart').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const id = parseInt(this.getAttribute('data-id'));
+            if (wishlist.includes(id)) {
+              wishlist = wishlist.filter(wid => wid !== id);
+              this.style.color = '#b09ec6';
+              this.innerHTML = '<i class="far fa-heart"></i>';
+            } else {
+              wishlist.push(id);
+              this.style.color = '#ff4d6d';
+              this.innerHTML = '<i class="fas fa-heart"></i>';
+            }
+          });
+        });
       }
 
-      // Attach add-to-cart / view-basket events
       function attachProductButtonEvents() {
         document.querySelectorAll('.btn-add').forEach(btn => {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
             const id = parseInt(this.getAttribute('data-id'));
-            const product = products.find(p => p.id === id);
             const existing = cart.find(item => item.id === id);
 
             if (existing) {
-              // already in cart -> open cart drawer
               openCartDrawer();
             } else {
-              // add to cart
               cart.push({ id: id, qty: 1 });
               updateCartBadge();
-              // update button state
               this.classList.add('view-basket');
               this.innerHTML = `<i class="fas fa-shopping-bag"></i> View Basket (1)`;
-              // open cart drawer after a tiny delay so user sees change
               setTimeout(() => openCartDrawer(), 250);
             }
             updateAllProductButtons();
@@ -2124,7 +2118,6 @@
         });
       }
 
-      // Update all product buttons to reflect current cart state
       function updateAllProductButtons() {
         document.querySelectorAll('.btn-add').forEach(btn => {
           const id = parseInt(btn.getAttribute('data-id'));
@@ -2201,7 +2194,6 @@
         cartBody.innerHTML = html;
         cartSubtotal.textContent = `$${subtotal}`;
 
-        // attach qty events
         cartBody.querySelectorAll('.qty-btn.inc').forEach(btn => {
           btn.addEventListener('click', () => {
             const id = parseInt(btn.getAttribute('data-id'));
@@ -2245,22 +2237,136 @@
         });
       }
 
-      // ---------- CHECKOUT SUMMARY (inside checkout modal) ----------
+      // ---------- CHECKOUT SUMMARY ----------
       function updateCheckoutSummary() {
+        const summaryEl = document.getElementById('checkoutSummary');
+        const countEl = document.getElementById('summaryCount');
+        const totalEl = document.getElementById('checkoutGrandTotal');
+
         let subtotal = 0;
+        let itemCount = 0;
         let itemsHtml = '';
+
         cart.forEach(item => {
           const product = products.find(p => p.id === item.id);
           if (!product) return;
           const lineTotal = product.price * item.qty;
           subtotal += lineTotal;
+          itemCount += item.qty;
           itemsHtml += `<div class="checkout-line"><span>${product.name} × ${item.qty}</span><span>$${lineTotal}</span></div>`;
         });
-        checkoutSummary.innerHTML = `
-          <h4><i class="fas fa-receipt" style="margin-right:6px;"></i>Order summary</h4>
-          ${itemsHtml || '<p style="color:var(--text-soft);">No items</p>'}
-          <div class="checkout-line total"><span>Total</span><span>$${subtotal}</span></div>
-        `;
+
+        if (summaryEl) {
+          summaryEl.innerHTML = itemsHtml
+            ? `${itemsHtml}<div class="checkout-line total"><span>Subtotal</span><span>$${subtotal}</span></div>`
+            : '<p style="color:var(--text-soft);">No items in your basket.</p>';
+        }
+
+        if (countEl) countEl.textContent = `${itemCount} item${itemCount !== 1 ? 's' : ''}`;
+        if (totalEl) totalEl.textContent = `$${subtotal}`;
+      }
+
+      // ---------- SEARCHABLE COUNTRY SELECT ----------
+      function initSearchableSelect(wrapper, onChange) {
+        const searchInput = wrapper.querySelector('.select-search');
+        const listEl = wrapper.querySelector('.select-list');
+        const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+        let highlightedIndex = -1;
+
+        function renderOptions(filter = '') {
+          const q = filter.toLowerCase().trim();
+          const filtered = COUNTRIES.filter(c =>
+            c.name.toLowerCase().includes(q) || c.dial.includes(q) || c.code.toLowerCase().includes(q)
+          );
+
+          if (filtered.length === 0) {
+            listEl.innerHTML = '<div class="select-no-results">No countries found</div>';
+            return;
+          }
+
+          listEl.innerHTML = filtered.map((c, i) => `
+            <div class="select-option ${hiddenInput.value === c.code ? 'selected' : ''}" data-code="${c.code}" data-index="${i}">
+              <span class="flag">${c.flag}</span>
+              <span>${c.name}</span>
+              <span style="margin-left:auto; color:var(--text-soft); font-size:0.8rem;">${c.dial}</span>
+            </div>
+          `).join('');
+
+          listEl.querySelectorAll('.select-option').forEach(opt => {
+            opt.addEventListener('click', () => selectCountry(opt.getAttribute('data-code')));
+          });
+        }
+
+        function selectCountry(code) {
+          const country = getCountryByCode(code);
+          if (!country) return;
+          hiddenInput.value = country.code;
+          searchInput.value = `${country.flag}  ${country.name}`;
+          listEl.classList.remove('open');
+          if (onChange) onChange(country);
+        }
+
+        function openList() {
+          listEl.classList.add('open');
+          highlightedIndex = -1;
+          renderOptions('');
+        }
+
+        function closeList() {
+          listEl.classList.remove('open');
+        }
+
+        searchInput.addEventListener('focus', openList);
+        searchInput.addEventListener('input', function() {
+          renderOptions(this.value);
+          listEl.classList.add('open');
+        });
+
+        searchInput.addEventListener('keydown', function(e) {
+          const options = listEl.querySelectorAll('.select-option');
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            highlightedIndex = Math.min(highlightedIndex + 1, options.length - 1);
+            updateHighlight(options);
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            highlightedIndex = Math.max(highlightedIndex - 1, 0);
+            updateHighlight(options);
+          } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (highlightedIndex >= 0 && options[highlightedIndex]) {
+              selectCountry(options[highlightedIndex].getAttribute('data-code'));
+            }
+          } else if (e.key === 'Escape') {
+            closeList();
+            searchInput.blur();
+          }
+        });
+
+        function updateHighlight(options) {
+          options.forEach((o, i) => o.classList.toggle('highlighted', i === highlightedIndex));
+          if (options[highlightedIndex]) {
+            options[highlightedIndex].scrollIntoView({ block: 'nearest' });
+          }
+        }
+
+        document.addEventListener('click', function(e) {
+          if (!wrapper.contains(e.target)) closeList();
+        });
+
+        // Initialize default to US
+        const initial = getCountryByCode('US');
+        if (initial) {
+          hiddenInput.value = initial.code;
+          searchInput.value = `${initial.flag}  ${initial.name}`;
+          if (onChange) onChange(initial);
+        }
+
+        return { selectCountry, getValue: () => hiddenInput.value };
+      }
+
+      function updatePhonePrefix(prefixEl, country) {
+        if (prefixEl && country) prefixEl.textContent = country.dial;
       }
 
       // ---------- OPEN/CLOSE OVERLAYS ----------
@@ -2274,7 +2380,6 @@
         document.body.style.overflow = '';
       }
 
-      // Close buttons
       document.querySelectorAll('[data-close]').forEach(btn => {
         btn.addEventListener('click', function() {
           const id = this.getAttribute('data-close');
@@ -2283,7 +2388,6 @@
         });
       });
 
-      // Click outside modal to close
       document.querySelectorAll('.overlay').forEach(overlay => {
         overlay.addEventListener('click', function(e) {
           if (e.target === this) {
@@ -2316,7 +2420,6 @@
         closeCartDrawer();
       });
 
-      // Close cart drawer when clicking outside (on the overlay area)
       document.addEventListener('click', (e) => {
         if (cartDrawer.classList.contains('open') && 
             !cartDrawer.contains(e.target) && 
@@ -2330,231 +2433,140 @@
         }
       });
 
-      // Add more items (close drawer, scroll to grid)
       document.getElementById('addMoreBtn').addEventListener('click', () => {
         closeCartDrawer();
         document.querySelector('.filter-bar').scrollIntoView({ behavior: 'smooth' });
       });
 
-      // ---------- COUNTRY DATA ----------
-const COUNTRIES = [
-  { code: 'AF', name: 'Afghanistan', dial: '+93', flag: '🇦🇫' },
-  { code: 'AL', name: 'Albania', dial: '+355', flag: '🇦🇱' },
-  { code: 'DZ', name: 'Algeria', dial: '+213', flag: '🇩🇿' },
-  { code: 'AR', name: 'Argentina', dial: '+54', flag: '🇦🇷' },
-  { code: 'AU', name: 'Australia', dial: '+61', flag: '🇦🇺' },
-  { code: 'AT', name: 'Austria', dial: '+43', flag: '🇦🇹' },
-  { code: 'BE', name: 'Belgium', dial: '+32', flag: '🇧🇪' },
-  { code: 'BR', name: 'Brazil', dial: '+55', flag: '🇧🇷' },
-  { code: 'CA', name: 'Canada', dial: '+1', flag: '🇨🇦' },
-  { code: 'CN', name: 'China', dial: '+86', flag: '🇨🇳' },
-  { code: 'CO', name: 'Colombia', dial: '+57', flag: '🇨🇴' },
-  { code: 'DK', name: 'Denmark', dial: '+45', flag: '🇩🇰' },
-  { code: 'EG', name: 'Egypt', dial: '+20', flag: '🇪🇬' },
-  { code: 'FI', name: 'Finland', dial: '+358', flag: '🇫🇮' },
-  { code: 'FR', name: 'France', dial: '+33', flag: '🇫🇷' },
-  { code: 'DE', name: 'Germany', dial: '+49', flag: '🇩🇪' },
-  { code: 'GH', name: 'Ghana', dial: '+233', flag: '🇬🇭' },
-  { code: 'GR', name: 'Greece', dial: '+30', flag: '🇬🇷' },
-  { code: 'HK', name: 'Hong Kong', dial: '+852', flag: '🇭🇰' },
-  { code: 'IN', name: 'India', dial: '+91', flag: '🇮🇳' },
-  { code: 'ID', name: 'Indonesia', dial: '+62', flag: '🇮🇩' },
-  { code: 'IE', name: 'Ireland', dial: '+353', flag: '🇮🇪' },
-  { code: 'IL', name: 'Israel', dial: '+972', flag: '🇮🇱' },
-  { code: 'IT', name: 'Italy', dial: '+39', flag: '🇮🇹' },
-  { code: 'JM', name: 'Jamaica', dial: '+1', flag: '🇯🇲' },
-  { code: 'JP', name: 'Japan', dial: '+81', flag: '🇯🇵' },
-  { code: 'KE', name: 'Kenya', dial: '+254', flag: '🇰🇪' },
-  { code: 'KW', name: 'Kuwait', dial: '+965', flag: '🇰🇼' },
-  { code: 'MY', name: 'Malaysia', dial: '+60', flag: '🇲🇾' },
-  { code: 'MX', name: 'Mexico', dial: '+52', flag: '🇲🇽' },
-  { code: 'MA', name: 'Morocco', dial: '+212', flag: '🇲🇦' },
-  { code: 'NL', name: 'Netherlands', dial: '+31', flag: '🇳🇱' },
-  { code: 'NZ', name: 'New Zealand', dial: '+64', flag: '🇳🇿' },
-  { code: 'NG', name: 'Nigeria', dial: '+234', flag: '🇳🇬' },
-  { code: 'NO', name: 'Norway', dial: '+47', flag: '🇳🇴' },
-  { code: 'PK', name: 'Pakistan', dial: '+92', flag: '🇵🇰' },
-  { code: 'PH', name: 'Philippines', dial: '+63', flag: '🇵🇭' },
-  { code: 'PL', name: 'Poland', dial: '+48', flag: '🇵🇱' },
-  { code: 'PT', name: 'Portugal', dial: '+351', flag: '🇵🇹' },
-  { code: 'QA', name: 'Qatar', dial: '+974', flag: '🇶🇦' },
-  { code: 'RO', name: 'Romania', dial: '+40', flag: '🇷🇴' },
-  { code: 'SA', name: 'Saudi Arabia', dial: '+966', flag: '🇸🇦' },
-  { code: 'SG', name: 'Singapore', dial: '+65', flag: '🇸🇬' },
-  { code: 'ZA', name: 'South Africa', dial: '+27', flag: '🇿🇦' },
-  { code: 'KR', name: 'South Korea', dial: '+82', flag: '🇰🇷' },
-  { code: 'ES', name: 'Spain', dial: '+34', flag: '🇪🇸' },
-  { code: 'LK', name: 'Sri Lanka', dial: '+94', flag: '🇱🇰' },
-  { code: 'SE', name: 'Sweden', dial: '+46', flag: '🇸🇪' },
-  { code: 'CH', name: 'Switzerland', dial: '+41', flag: '🇨🇭' },
-  { code: 'TZ', name: 'Tanzania', dial: '+255', flag: '🇹🇿' },
-  { code: 'TH', name: 'Thailand', dial: '+66', flag: '🇹🇭' },
-  { code: 'TR', name: 'Turkey', dial: '+90', flag: '🇹🇷' },
-  { code: 'UG', name: 'Uganda', dial: '+256', flag: '🇺🇬' },
-  { code: 'AE', name: 'United Arab Emirates', dial: '+971', flag: '🇦🇪' },
-  { code: 'GB', name: 'United Kingdom', dial: '+44', flag: '🇬🇧' },
-  { code: 'US', name: 'United States', dial: '+1', flag: '🇺🇸' },
-  { code: 'VN', name: 'Vietnam', dial: '+84', flag: '🇻🇳' },
-  { code: 'ZM', name: 'Zambia', dial: '+260', flag: '🇿🇲' },
-  { code: 'ZW', name: 'Zimbabwe', dial: '+263', flag: '🇿🇼' }
-];
-
-function getCountryByCode(code) {
-  return COUNTRIES.find(c => c.code === code);
-}
-
-// ---------- CHECKOUT SUMMARY ----------
-function updateCheckoutSummary() {
-  const summaryEl = document.getElementById('checkoutSummary');
-  const countEl = document.getElementById('summaryCount');
-  const totalEl = document.getElementById('checkoutGrandTotal');
-
-  let subtotal = 0;
-  let itemCount = 0;
-  let itemsHtml = '';
-
-  cart.forEach(item => {
-    const product = products.find(p => p.id === item.id);
-    if (!product) return;
-    const lineTotal = product.price * item.qty;
-    subtotal += lineTotal;
-    itemCount += item.qty;
-    itemsHtml += `<div class="checkout-line"><span>${product.name} × ${item.qty}</span><span>$${lineTotal}</span></div>`;
-  });
-
-  if (summaryEl) {
-    summaryEl.innerHTML = itemsHtml
-      ? `${itemsHtml}<div class="checkout-line total"><span>Subtotal</span><span>$${subtotal}</span></div>`
-      : '<p style="color:var(--text-soft);">No items in your basket.</p>';
-  }
-
-  if (countEl) countEl.textContent = `${itemCount} item${itemCount !== 1 ? 's' : ''}`;
-  if (totalEl) totalEl.textContent = `$${subtotal}`;
-}
-
-// ---------- SEARCHABLE COUNTRY SELECT ----------
-function initSearchableSelect(wrapper, onChange) {
-  const searchInput = wrapper.querySelector('.select-search');
-  const listEl = wrapper.querySelector('.select-list');
-  const hiddenInput = wrapper.querySelector('input[type="hidden"]');
-  let highlightedIndex = -1;
-
-  function renderOptions(filter = '') {
-    const q = filter.toLowerCase().trim();
-    const filtered = COUNTRIES.filter(c =>
-      c.name.toLowerCase().includes(q) || c.dial.includes(q) || c.code.toLowerCase().includes(q)
-    );
-
-    if (filtered.length === 0) {
-      listEl.innerHTML = '<div class="select-no-results">No countries found</div>';
-      return;
-    }
-
-    listEl.innerHTML = filtered.map((c, i) => `
-      <div class="select-option ${hiddenInput.value === c.code ? 'selected' : ''}" data-code="${c.code}" data-index="${i}">
-        <span class="flag">${c.flag}</span>
-        <span>${c.name}</span>
-        <span style="margin-left:auto; color:var(--text-soft); font-size:0.8rem;">${c.dial}</span>
-      </div>
-    `).join('');
-
-    listEl.querySelectorAll('.select-option').forEach(opt => {
-      opt.addEventListener('click', () => selectCountry(opt.getAttribute('data-code')));
-    });
-  }
-
-  function selectCountry(code) {
-    const country = getCountryByCode(code);
-    if (!country) return;
-    hiddenInput.value = country.code;
-    searchInput.value = `${country.flag}  ${country.name}`;
-    listEl.classList.remove('open');
-    if (onChange) onChange(country);
-  }
-
-  function openList() {
-    listEl.classList.add('open');
-    highlightedIndex = -1;
-    renderOptions('');
-  }
-
-  function closeList() {
-    listEl.classList.remove('open');
-  }
-
-  searchInput.addEventListener('focus', openList);
-  searchInput.addEventListener('input', function() {
-    renderOptions(this.value);
-    listEl.classList.add('open');
-  });
-
-  searchInput.addEventListener('keydown', function(e) {
-    const options = listEl.querySelectorAll('.select-option');
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      highlightedIndex = Math.min(highlightedIndex + 1, options.length - 1);
-      updateHighlight(options);
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      highlightedIndex = Math.max(highlightedIndex - 1, 0);
-      updateHighlight(options);
-    } else if (e.key === 'Enter') {
-      e.preventDefault();
-      if (highlightedIndex >= 0 && options[highlightedIndex]) {
-        selectCountry(options[highlightedIndex].getAttribute('data-code'));
+      // ---------- CHECKOUT & SETUP ----------
+      const shipSelectWrapper = document.querySelector('[data-select="shipCountry"]');
+      const shipPhonePrefix = document.getElementById('shipPhonePrefix');
+      if (shipSelectWrapper) {
+        initSearchableSelect(shipSelectWrapper, (country) => {
+          updatePhonePrefix(shipPhonePrefix, country);
+        });
       }
-    } else if (e.key === 'Escape') {
-      closeList();
-      searchInput.blur();
-    }
-  });
 
-  function updateHighlight(options) {
-    options.forEach((o, i) => o.classList.toggle('highlighted', i === highlightedIndex));
-    if (options[highlightedIndex]) {
-      options[highlightedIndex].scrollIntoView({ block: 'nearest' });
-    }
-  }
+      const billSelectWrapper = document.querySelector('[data-select="billCountry"]');
+      const billPhonePrefix = document.getElementById('billPhonePrefix');
+      if (billSelectWrapper) {
+        initSearchableSelect(billSelectWrapper, (country) => {
+          updatePhonePrefix(billPhonePrefix, country);
+        });
+      }
 
-  document.addEventListener('click', function(e) {
-    if (!wrapper.contains(e.target)) closeList();
-  });
+      const sameAsShipping = document.getElementById('sameAsShipping');
+      const billingForm = document.getElementById('billingForm');
+      function toggleBillingForm() {
+        if (!sameAsShipping || !billingForm) return;
+        if (sameAsShipping.checked) {
+          billingForm.classList.remove('expanded');
+        } else {
+          billingForm.classList.add('expanded');
+        }
+      }
+      if (sameAsShipping) {
+        sameAsShipping.addEventListener('change', toggleBillingForm);
+        toggleBillingForm();
+      }
 
-  // Initialize default to US
-  const initial = getCountryByCode('US');
-  if (initial) {
-    hiddenInput.value = initial.code;
-    searchInput.value = `${initial.flag}  ${initial.name}`;
-    if (onChange) onChange(initial);
-  }
+      const summaryToggle = document.getElementById('summaryToggle');
+      const summaryBody = document.getElementById('summaryBody');
+      if (summaryToggle && summaryBody) {
+        summaryToggle.addEventListener('click', () => {
+          const expanded = summaryToggle.getAttribute('aria-expanded') === 'true';
+          summaryToggle.setAttribute('aria-expanded', !expanded);
+          summaryBody.classList.toggle('collapsed', expanded);
+        });
+      }
 
-  return { selectCountry, getValue: () => hiddenInput.value };
-}
+      document.getElementById('checkoutBtn').addEventListener('click', () => {
+        if (cart.length === 0) {
+          alert('Your basket is empty. Add some dolls first!');
+          return;
+        }
+        closeCartDrawer();
+        updateCheckoutSummary();
+        openOverlay(checkoutOverlay);
+      });
 
-// ---------- PHONE PREFIX ----------
-function updatePhonePrefix(prefixEl, country) {
-  if (prefixEl && country) prefixEl.textContent = country.dial;
-}
+      document.getElementById('payBtn').addEventListener('click', () => {
+        const cardNum = document.getElementById('cardNumber').value.trim();
+        const expiry = document.getElementById('cardExpiry').value.trim();
+        const cvc = document.getElementById('cardCvc').value.trim();
 
-// ---------- BILLING TOGGLE ----------
-const sameAsShipping = document.getElementById('sameAsShipping');
-const billingForm = document.getElementById('billingForm');
+        if (!cardNum || !expiry || !cvc) {
+          alert('Please fill in all payment details.');
+          return;
+        }
 
-function toggleBillingForm() {
-  if (!sameAsShipping || !billingForm) return;
-  if (sameAsShipping.checked) {
-    billingForm.classList.remove('expanded');
-  } else {
-    billingForm.classList.add('expanded');
-  }
-}
+        const total = cart.reduce((sum, item) => {
+          const p = products.find(pr => pr.id === item.id);
+          return sum + (p ? p.price * item.qty : 0);
+        }, 0);
 
-if (sameAsShipping) {
-  sameAsShipping.addEventListener('change', toggleBillingForm);
-}
+        closeOverlay(checkoutOverlay);
+        alert(`🎉 Payment successful! Thank you for your order of $${total}. Your dolls will be on their way soon!`);
+        cart = [];
+        updateCartBadge();
+        updateAllProductButtons();
+        renderCartItems();
+        updateCheckoutSummary();
+      });
 
-// ---------- SUMMARY TOGGLE ----------
-const summaryToggle = document.getElementById('
+      // ---------- SEARCH ----------
+      document.getElementById('searchInput').addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        if (!query) {
+          searchResults.innerHTML = `<p style="color:var(--text-soft); text-align:center; padding:20px;">Type to search our collection</p>`;
+          return;
+        }
+        const results = products.filter(p => 
+          p.name.toLowerCase().includes(query) || 
+          p.description.toLowerCase().includes(query) ||
+          p.type.toLowerCase().includes(query)
+        );
+        if (results.length === 0) {
+          searchResults.innerHTML = `<p style="color:var(--text-soft); text-align:center; padding:20px;">No dolls match "${query}"</p>`;
+          return;
+        }
+        let html = '';
+        results.forEach(p => {
+          html += `
+            <div class="search-result-item" data-id="${p.id}">
+              <img src="${p.image}" alt="${p.name}">
+              <div class="info">
+                <h4>${p.name}</h4>
+                <p>$${p.price} · ${p.type.replace('-', ' ')}</p>
+              </div>
+            </div>
+          `;
+        });
+        searchResults.innerHTML = html;
+
+        searchResults.querySelectorAll('.search-result-item').forEach(item => {
+          item.addEventListener('click', function() {
+            const id = parseInt(this.getAttribute('data-id'));
+            const existing = cart.find(i => i.id === id);
+            if (existing) {
+              existing.qty += 1;
+            } else {
+              cart.push({ id: id, qty: 1 });
+            }
+            updateCartBadge();
+            updateAllProductButtons();
+            renderCartItems();
+            updateCheckoutSummary();
+            closeOverlay(searchOverlay);
+            openCartDrawer();
+          });
+        });
+      });
+
+      document.getElementById('searchSubmit').addEventListener('click', function() {
+        const input = document.getElementById('searchInput');
+        input.dispatchEvent(new Event('input'));
+      });
 
       // ---------- WISHLIST ----------
       function renderWishlist() {
@@ -2595,88 +2607,6 @@ const summaryToggle = document.getElementById('
         });
       }
 
-      // Wishlist functionality: we'll add heart buttons on product cards
-      // Since the design doesn't have hearts, we'll add them dynamically via CSS pseudo-element? 
-      // Simpler: add a small heart button overlay on card image.
-      // We'll modify the render function to include a heart icon.
-      // To keep it clean, let's re-render with hearts.
-
-      // Override renderProducts to include heart buttons
-      const originalRenderProducts = renderProducts;
-      renderProducts = function(filter = 'all') {
-        activeFilter = filter;
-        const filtered = filter === 'all' 
-          ? products 
-          : products.filter(p => p.type === filter);
-
-        if (filtered.length === 0) {
-          grid.innerHTML = `<div class="no-results" style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-soft);">No dolls in this category yet.</div>`;
-          return;
-        }
-
-        let html = '';
-        filtered.forEach(product => {
-          let stars = '';
-          const fullStars = Math.floor(product.rating);
-          const halfStar = product.rating % 1 >= 0.5;
-          for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
-          if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>';
-
-          const typeLabel = {
-            'full-silicone': 'Full silicone',
-            'cloth-body': 'Cloth body',
-            'vinyl': 'Vinyl'
-          }[product.type] || product.type;
-
-          const inCart = cart.find(item => item.id === product.id);
-          const qty = inCart ? inCart.qty : 0;
-          const isWishlisted = wishlist.includes(product.id);
-
-          html += `
-            <div class="product-card" data-type="${product.type}">
-              <div class="card-image">
-                <span class="type-tag">${typeLabel}</span>
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
-                <button class="wish-heart" data-id="${product.id}" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,0.9); border:none; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; color:${isWishlisted ? '#ff4d6d' : '#b09ec6'}; font-size:1.1rem; box-shadow:0 4px 10px rgba(0,0,0,0.08); transition:all 0.2s; z-index:2;">
-                  <i class="${isWishlisted ? 'fas fa-heart' : 'far fa-heart'}"></i>
-                </button>
-              </div>
-              <div class="card-content">
-                <h3 class="product-name">${product.name}</h3>
-                <p class="product-desc">${product.description}</p>
-                <div class="product-meta">
-                  <span class="price">$${product.price}</span>
-                  <span class="rating">${stars}</span>
-                </div>
-                <button class="btn-add ${qty > 0 ? 'view-basket' : ''}" data-id="${product.id}">
-                  ${qty > 0 ? `<i class="fas fa-shopping-bag"></i> View Basket (${qty})` : '<i class="fas fa-cart-plus"></i> Add to cart'}
-                </button>
-              </div>
-            </div>
-          `;
-        });
-
-        grid.innerHTML = html;
-        attachProductButtonEvents();
-
-        // Attach wishlist heart events
-        document.querySelectorAll('.wish-heart').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const id = parseInt(this.getAttribute('data-id'));
-            if (wishlist.includes(id)) {
-              wishlist = wishlist.filter(wid => wid !== id);
-              this.style.color = '#b09ec6';
-              this.innerHTML = '<i class="far fa-heart"></i>';
-            } else {
-              wishlist.push(id);
-              this.style.color = '#ff4d6d';
-              this.innerHTML = '<i class="fas fa-heart"></i>';
-            }
-          });
-        });
-      };
-
       // ---------- INITIAL RENDER ----------
       renderProducts('all');
       updateCartBadge();
@@ -2716,7 +2646,6 @@ const summaryToggle = document.getElementById('
         }
       });
 
-      // Expose closeOverlay for inline handlers if needed
       window.closeOverlay = closeOverlay;
     })();
   </script>
